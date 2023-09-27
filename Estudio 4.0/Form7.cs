@@ -16,22 +16,35 @@ namespace Estudio
         public Form7()
         {
             InitializeComponent();
+            Modalidade mod1 = new Modalidade();
+            MySqlDataReader read = mod1.consultarTodasModalidades();
+            while (read.Read())
+            {
+
+                comboBox1.Items.Add(read["descricaoModalidade"].ToString());
+            }
+            DAO_Conexao.con.Close();
         }
 
         private void btnExlcuir_Click(object sender, EventArgs e)
         {
             try
             {
-                Modalidade modalidade = new Modalidade(comboBox1.SelectedItem.ToString());
-                if (modalidade.excluirModalidade())
-                {
-                    this.atualizarDescricao();
-                    MessageBox.Show("Modalidade foi excluída");
+                Modalidade modal = new Modalidade();
+                modal.Descricao1 = comboBox1.Text;
+
+                if (modal.consultarModalidade2()){
+                    if (modal.excluirModalidade()){
+                        MessageBox.Show("Modalidade foi excluída");
+                    }
                 }
+                else{
+                    MessageBox.Show("Modalidade não existe");
+                }
+                modal.excluirModalidade();
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
+            catch (Exception ex){
+                MessageBox.Show("Erro ao excluir");
             }
         }
 

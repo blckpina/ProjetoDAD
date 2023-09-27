@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace Estudio
 {
     public partial class Form1 : Form
-    {
+    {        
         public Form1()
         {
             InitializeComponent();
@@ -74,31 +74,45 @@ namespace Estudio
         private void excluirAlunoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form4 excluir_aluno = new Form4();
+            excluir_aluno.MdiParent = this;
             excluir_aluno.Show();
         }
 
         private void atualizarAlunoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form5 atualizar_aluno = new Form5();
+            atualizar_aluno.MdiParent = this;
             atualizar_aluno.Show();
         }
 
         private void cadastrarModalidadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form6 cadastrar_modalidade = new Form6();
+            cadastrar_modalidade.MdiParent = this;
             cadastrar_modalidade.Show();
         }
 
         private void excluirModalidadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form7 excluir_modalidade = new Form7();
+            excluir_modalidade.MdiParent = this;
             excluir_modalidade.Show();
         }
 
         private void atualizarModalidadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form8 atualizar_modalidade = new Form8();
-            atualizar_modalidade.Show();
+            bool atualiza = true;
+            Form8 attconsul_modalidade = new Form8(atualiza);
+            attconsul_modalidade.MdiParent = this;
+            attconsul_modalidade.Show();
+        }
+
+        private void consultarModalidadeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool atualiza = false;
+            Form8 attconsul_modalidade = new Form8(atualiza);
+            attconsul_modalidade.MdiParent = this;
+            attconsul_modalidade.Show();
         }
     }
 }

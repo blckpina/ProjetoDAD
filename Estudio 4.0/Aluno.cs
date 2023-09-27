@@ -21,7 +21,6 @@ namespace Estudio
         private string telefone;
         private string email;
         private byte[] foto;
-        private bool ativo;
 
         public Aluno(string cpf, string nome, string rua, string numero, string bairro, string complemento, string cep, string cidade, string estado, string telefone,
             string email)

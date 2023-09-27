@@ -30,20 +30,22 @@ namespace Estudio
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblDescricao = new System.Windows.Forms.Label();
-            this.lblPreco = new System.Windows.Forms.Label();
-            this.lblQtdeAlunos = new System.Windows.Forms.Label();
-            this.lblQtdeAulas = new System.Windows.Forms.Label();
-            this.cbbDescricao = new System.Windows.Forms.ComboBox();
-            this.txtPreco = new System.Windows.Forms.TextBox();
-            this.txtQtdeAlunos = new System.Windows.Forms.TextBox();
-            this.txtQtdeAulas = new System.Windows.Forms.TextBox();
             this.btnAtualizar = new System.Windows.Forms.Button();
+            this.txtQtdeAulas = new System.Windows.Forms.TextBox();
+            this.txtQtdeAlunos = new System.Windows.Forms.TextBox();
+            this.txtPreco = new System.Windows.Forms.TextBox();
+            this.cbbDescricao = new System.Windows.Forms.ComboBox();
+            this.lblQtdeAulas = new System.Windows.Forms.Label();
+            this.lblQtdeAlunos = new System.Windows.Forms.Label();
+            this.lblPreco = new System.Windows.Forms.Label();
+            this.lblDescricao = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkBox1);
             this.groupBox1.Controls.Add(this.btnAtualizar);
             this.groupBox1.Controls.Add(this.txtQtdeAulas);
             this.groupBox1.Controls.Add(this.txtQtdeAlunos);
@@ -60,32 +62,45 @@ namespace Estudio
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Modalidades";
             // 
-            // lblDescricao
+            // btnAtualizar
             // 
-            this.lblDescricao.AutoSize = true;
-            this.lblDescricao.Location = new System.Drawing.Point(54, 62);
-            this.lblDescricao.Name = "lblDescricao";
-            this.lblDescricao.Size = new System.Drawing.Size(58, 13);
-            this.lblDescricao.TabIndex = 0;
-            this.lblDescricao.Text = "Descrição:";
+            this.btnAtualizar.Location = new System.Drawing.Point(118, 263);
+            this.btnAtualizar.Name = "btnAtualizar";
+            this.btnAtualizar.Size = new System.Drawing.Size(387, 23);
+            this.btnAtualizar.TabIndex = 8;
+            this.btnAtualizar.Text = "Atualizar";
+            this.btnAtualizar.UseVisualStyleBackColor = true;
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
-            // lblPreco
+            // txtQtdeAulas
             // 
-            this.lblPreco.AutoSize = true;
-            this.lblPreco.Location = new System.Drawing.Point(74, 102);
-            this.lblPreco.Name = "lblPreco";
-            this.lblPreco.Size = new System.Drawing.Size(38, 13);
-            this.lblPreco.TabIndex = 1;
-            this.lblPreco.Text = "Preço:";
+            this.txtQtdeAulas.Location = new System.Drawing.Point(118, 180);
+            this.txtQtdeAulas.Name = "txtQtdeAulas";
+            this.txtQtdeAulas.Size = new System.Drawing.Size(387, 20);
+            this.txtQtdeAulas.TabIndex = 7;
             // 
-            // lblQtdeAlunos
+            // txtQtdeAlunos
             // 
-            this.lblQtdeAlunos.AutoSize = true;
-            this.lblQtdeAlunos.Location = new System.Drawing.Point(29, 141);
-            this.lblQtdeAlunos.Name = "lblQtdeAlunos";
-            this.lblQtdeAlunos.Size = new System.Drawing.Size(83, 13);
-            this.lblQtdeAlunos.TabIndex = 2;
-            this.lblQtdeAlunos.Text = "Qtde de Alunos:";
+            this.txtQtdeAlunos.Location = new System.Drawing.Point(118, 138);
+            this.txtQtdeAlunos.Name = "txtQtdeAlunos";
+            this.txtQtdeAlunos.Size = new System.Drawing.Size(387, 20);
+            this.txtQtdeAlunos.TabIndex = 6;
+            // 
+            // txtPreco
+            // 
+            this.txtPreco.Location = new System.Drawing.Point(118, 99);
+            this.txtPreco.Name = "txtPreco";
+            this.txtPreco.Size = new System.Drawing.Size(387, 20);
+            this.txtPreco.TabIndex = 5;
+            // 
+            // cbbDescricao
+            // 
+            this.cbbDescricao.FormattingEnabled = true;
+            this.cbbDescricao.Location = new System.Drawing.Point(118, 59);
+            this.cbbDescricao.Name = "cbbDescricao";
+            this.cbbDescricao.Size = new System.Drawing.Size(387, 21);
+            this.cbbDescricao.TabIndex = 4;
+            this.cbbDescricao.SelectedIndexChanged += new System.EventHandler(this.cbbDescricao_SelectedIndexChanged);
             // 
             // lblQtdeAulas
             // 
@@ -96,44 +111,42 @@ namespace Estudio
             this.lblQtdeAulas.TabIndex = 3;
             this.lblQtdeAulas.Text = "Qtde de Aulas:";
             // 
-            // cbbDescricao
+            // lblQtdeAlunos
             // 
-            this.cbbDescricao.FormattingEnabled = true;
-            this.cbbDescricao.Location = new System.Drawing.Point(118, 59);
-            this.cbbDescricao.Name = "cbbDescricao";
-            this.cbbDescricao.Size = new System.Drawing.Size(387, 21);
-            this.cbbDescricao.TabIndex = 4;
+            this.lblQtdeAlunos.AutoSize = true;
+            this.lblQtdeAlunos.Location = new System.Drawing.Point(29, 141);
+            this.lblQtdeAlunos.Name = "lblQtdeAlunos";
+            this.lblQtdeAlunos.Size = new System.Drawing.Size(83, 13);
+            this.lblQtdeAlunos.TabIndex = 2;
+            this.lblQtdeAlunos.Text = "Qtde de Alunos:";
             // 
-            // txtPreco
+            // lblPreco
             // 
-            this.txtPreco.Location = new System.Drawing.Point(118, 99);
-            this.txtPreco.Name = "txtPreco";
-            this.txtPreco.Size = new System.Drawing.Size(387, 20);
-            this.txtPreco.TabIndex = 5;
+            this.lblPreco.AutoSize = true;
+            this.lblPreco.Location = new System.Drawing.Point(74, 102);
+            this.lblPreco.Name = "lblPreco";
+            this.lblPreco.Size = new System.Drawing.Size(38, 13);
+            this.lblPreco.TabIndex = 1;
+            this.lblPreco.Text = "Preço:";
             // 
-            // txtQtdeAlunos
+            // lblDescricao
             // 
-            this.txtQtdeAlunos.Location = new System.Drawing.Point(118, 138);
-            this.txtQtdeAlunos.Name = "txtQtdeAlunos";
-            this.txtQtdeAlunos.Size = new System.Drawing.Size(387, 20);
-            this.txtQtdeAlunos.TabIndex = 6;
+            this.lblDescricao.AutoSize = true;
+            this.lblDescricao.Location = new System.Drawing.Point(54, 62);
+            this.lblDescricao.Name = "lblDescricao";
+            this.lblDescricao.Size = new System.Drawing.Size(58, 13);
+            this.lblDescricao.TabIndex = 0;
+            this.lblDescricao.Text = "Descrição:";
             // 
-            // txtQtdeAulas
+            // checkBox1
             // 
-            this.txtQtdeAulas.Location = new System.Drawing.Point(118, 180);
-            this.txtQtdeAulas.Name = "txtQtdeAulas";
-            this.txtQtdeAulas.Size = new System.Drawing.Size(387, 20);
-            this.txtQtdeAulas.TabIndex = 7;
-            // 
-            // btnAtualizar
-            // 
-            this.btnAtualizar.Location = new System.Drawing.Point(118, 232);
-            this.btnAtualizar.Name = "btnAtualizar";
-            this.btnAtualizar.Size = new System.Drawing.Size(387, 23);
-            this.btnAtualizar.TabIndex = 8;
-            this.btnAtualizar.Text = "Atualizar";
-            this.btnAtualizar.UseVisualStyleBackColor = true;
-            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(38, 225);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(68, 17);
+            this.checkBox1.TabIndex = 9;
+            this.checkBox1.Text = "Excluído";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // Form8
             // 
@@ -161,5 +174,6 @@ namespace Estudio
         private System.Windows.Forms.Label lblQtdeAlunos;
         private System.Windows.Forms.Label lblPreco;
         private System.Windows.Forms.Label lblDescricao;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
