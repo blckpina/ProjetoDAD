@@ -42,7 +42,7 @@ namespace Estudio
             try
             {
                 DAO_Conexao.con.Open();
-                MySqlCommand insere = new MySqlCommand("insert into Estudio_Modalidade (idEstudio_Modalidade, descricaoModalidade, precoModalidade, qtdeAlunos, " +
+                MySqlCommand insere = new MySqlCommand("insert into Estudio_Modalidade (descricaoModalidade, precoModalidade, qtdeAlunos, " +
                     "qtdeAulas) values " +
                     "('" + Descricao + "','" + preco + "','" + qtde_alunos + "','" + qtde_aulas + "')", DAO_Conexao.con);
                 insere.ExecuteNonQuery();
@@ -87,7 +87,7 @@ namespace Estudio
             try
             {
                 DAO_Conexao.con.Open();
-                MySqlCommand consulta = new MySqlCommand("SELECT descricaoModalidade FROM Estudio_Modalidade ", DAO_Conexao.con);
+                MySqlCommand consulta = new MySqlCommand("SELECT * FROM Estudio_Modalidade where ativa NOT IN (1)", DAO_Conexao.con);
                 reader2 = consulta.ExecuteReader();
             }
             catch (Exception ex)
@@ -128,7 +128,7 @@ namespace Estudio
             try
             {
                 DAO_Conexao.con.Open();
-                MySqlCommand exclui = new MySqlCommand("update Estudio_Modalidade set ativo " +
+                MySqlCommand exclui = new MySqlCommand("update Estudio_Modalidade set ativa " +
                     "= 1 where Descricao = '" + Descricao + "'", DAO_Conexao.con);
                 exclui.ExecuteNonQuery();
                 exc2 = true;

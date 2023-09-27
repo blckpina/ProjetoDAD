@@ -94,5 +94,11 @@ namespace Estudio
             Form7 excluir_modalidade = new Form7();
             excluir_modalidade.Show();
         }
+
+        private void atualizarModalidadeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form8 atualizar_modalidade = new Form8();
+            atualizar_modalidade.Show();
+        }
     }
 }
