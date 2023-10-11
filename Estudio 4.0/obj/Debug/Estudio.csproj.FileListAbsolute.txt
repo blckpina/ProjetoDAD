@@ -138,3 +138,4 @@ C:\Users\aluno\Desktop\ProjetoDAD\Estudio 4.0\bin\Debug\MySql.Data.dll
 C:\Users\aluno\Desktop\ProjetoDAD\Estudio 4.0\bin\Debug\System.Threading.Tasks.Extensions.dll
 C:\Users\aluno\Desktop\ProjetoDAD\Estudio 4.0\bin\Debug\MySql.Data.xml
 C:\Users\aluno\Desktop\ProjetoDAD\Estudio 4.0\obj\Debug\Estudio.csproj.CopyComplete
+C:\Users\mupin\OneDrive\Área de Trabalho\ProjetoDAD\Estudio 4.0\obj\Debug\Estudio.Form8.resources

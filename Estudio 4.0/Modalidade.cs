@@ -47,6 +47,7 @@ namespace Estudio
         {
         }
 
+
         public bool cadastrarModalidade()
         {
             bool cad2 = false;
@@ -145,7 +146,7 @@ namespace Estudio
             try
             {
                 DAO_Conexao.con.Open();
-                MySqlCommand atualiza = new MySqlCommand("update Estudio_Modalidade set descricaoModalidade = '" + Descricao + "', precoModalidade = '" + preco + "', qtdeAlunos = '" + qtde_alunos + "', qtdeAulas = '" + qtde_aulas + "'", DAO_Conexao.con);
+                MySqlCommand atualiza = new MySqlCommand("update Estudio_Modalidade set descricaoModalidade='" + Descricao + "', precoModalidade = " + preco + ", qtdeAlunos = " + qtde_alunos + ", qtdeAulas = " + qtde_aulas + ", ativa = " + a + "", DAO_Conexao.con);
                 atualiza.ExecuteNonQuery();
                 exc2 = true;
             }

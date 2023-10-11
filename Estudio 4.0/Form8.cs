@@ -15,6 +15,7 @@ namespace Estudio
     {
         private bool atualiza;
         String descricaoSelected;
+
         public Form8(bool atualiza)
         {
             InitializeComponent();
@@ -48,6 +49,7 @@ namespace Estudio
                     int QtdeAlunos = int.Parse(txtQtdeAlunos.Text);
                     int QtdeAulas = int.Parse(txtQtdeAulas.Text);
                     int a;
+
                     if (checkBox1.Checked){
                         a = 1;
                     }
