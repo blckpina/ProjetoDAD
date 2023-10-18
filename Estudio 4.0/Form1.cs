@@ -114,5 +114,19 @@ namespace Estudio
             attconsul_modalidade.MdiParent = this;
             attconsul_modalidade.Show();
         }
+
+        private void cadastrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form9 cadatrar_turma = new Form9();
+            cadatrar_turma.MdiParent = this;
+            cadatrar_turma.Show();
+        }
+
+        private void excluirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form10 excluir_turma = new Form10();
+            excluir_turma.MdiParent = this;
+            excluir_turma.Show();
+        }
     }
 }

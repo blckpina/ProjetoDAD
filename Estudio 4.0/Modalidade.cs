@@ -181,5 +181,26 @@ namespace Estudio
             }
             return exc2;
         }
+
+        public MySqlDataReader consultarModalidadeAtivo()
+        {
+            MySqlCommand consulta = null;
+            MySqlDataReader resultado = null;
+
+            try
+            {
+                DAO_Conexao.con.Open();
+                consulta = new MySqlCommand("select * from Estudio_Modalidade where ativa=0", DAO_Conexao.con);
+                resultado = consulta.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+            }
+            return resultado;
+        }
     }
 }
