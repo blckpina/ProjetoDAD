@@ -30,6 +30,7 @@ namespace Estudio
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtDescricao = new System.Windows.Forms.TextBox();
             this.btnCadastrarMod = new System.Windows.Forms.Button();
             this.txtQtdeAulas = new System.Windows.Forms.TextBox();
             this.txtQtdeAlunos = new System.Windows.Forms.TextBox();
@@ -38,7 +39,6 @@ namespace Estudio
             this.lblQtdeAlunos = new System.Windows.Forms.Label();
             this.lblPreco = new System.Windows.Forms.Label();
             this.lblDescricao = new System.Windows.Forms.Label();
-            this.txtDescricao = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,6 +59,13 @@ namespace Estudio
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Modalidades";
+            // 
+            // txtDescricao
+            // 
+            this.txtDescricao.Location = new System.Drawing.Point(144, 55);
+            this.txtDescricao.Name = "txtDescricao";
+            this.txtDescricao.Size = new System.Drawing.Size(309, 20);
+            this.txtDescricao.TabIndex = 9;
             // 
             // btnCadastrarMod
             // 
@@ -127,13 +134,6 @@ namespace Estudio
             this.lblDescricao.TabIndex = 0;
             this.lblDescricao.Text = "Descrição";
             // 
-            // txtDescricao
-            // 
-            this.txtDescricao.Location = new System.Drawing.Point(144, 55);
-            this.txtDescricao.Name = "txtDescricao";
-            this.txtDescricao.Size = new System.Drawing.Size(309, 20);
-            this.txtDescricao.TabIndex = 9;
-            // 
             // Form6
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -141,7 +141,7 @@ namespace Estudio
             this.ClientSize = new System.Drawing.Size(563, 382);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form6";
-            this.Text = "Consultar Modalidade";
+            this.Text = "Cadastrar Modalidade";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

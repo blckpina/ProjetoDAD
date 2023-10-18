@@ -11,7 +11,7 @@ namespace Estudio
     class Turma
     {
         private string professor, diaSemana, horaTurma;
-        private int idModalidade, qtdeAlunos, idTurma, del;
+        private int idModalidade, qtdeAlunos, idTurma;
 
         public Turma(int idModalidade)
         {
@@ -57,7 +57,7 @@ namespace Estudio
             bool ins = false;
             try{
                 DAO_Conexao.con.Open();
-                MySqlCommand insere = new MySqlCommand("insert into Estudio_Turma(idModalidade,professorTurma, diasemanaTurma, horaTurma, nalunosmatriculadosTurma) values (" + idModalidade + ",'" + professor + "','" + diaSemana + "','" + horaTurma + "'," + qtdeAlunos + ")", DAO_Conexao.con);
+                MySqlCommand insere = new MySqlCommand("insert into Estudio_Turma(idModalidade,professorTurma, diasemanaTurma, horaTurma) values (" + idModalidade + ",'" + professor + "','" + diaSemana + "','" + horaTurma + ")", DAO_Conexao.con);
                 insere.ExecuteNonQuery();
                 ins = true;
             }

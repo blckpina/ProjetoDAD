@@ -31,5 +31,10 @@ namespace Estudio
                 }                              
             }
         }
+
+        private void txtExcluir_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
     }
 }

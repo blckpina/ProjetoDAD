@@ -49,6 +49,7 @@ namespace Estudio
             this.txtExcluir.Name = "txtExcluir";
             this.txtExcluir.Size = new System.Drawing.Size(90, 20);
             this.txtExcluir.TabIndex = 1;
+            this.txtExcluir.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txtExcluir_MaskInputRejected);
             this.txtExcluir.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtExcluir_KeyPress);
             // 
             // Form4

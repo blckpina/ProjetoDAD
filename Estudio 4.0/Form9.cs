@@ -13,43 +13,34 @@ namespace Estudio
 {
     public partial class Form9 : Form
     {
-        bool a;
         public Form9()
         {
-            try{
-                InitializeComponent();
-                WindowState = FormWindowState.Maximized;
-                Modalidade m = new Modalidade();
-                MySqlDataReader reader = m.consultarModalidadeAtivo();
-
-                while (reader.Read()){
-                    int x = int.Parse(reader["ativa"].ToString());
-                    if (x == 0){
-                        dataGridView1.Rows.Add(reader["descricaoModalidade"].ToString());
-                    }
+            try
+            {
+                Modalidade mod1 = new Modalidade();
+                MySqlDataReader result = mod1.consultarTodasModalidades();
+                while (result.Read())
+                {
+                    cbbModalidade.Items.Add(result["idModalidade"].ToString());
                 }
-                txtModalidade.Enabled = false;
             }
-            catch (Exception ex){
-                MessageBox.Show("Erro ao preencher");
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
-            finally{
-                DAO_Conexao.con.Close();
-            }
+            finally
+            {
+                DAO_Conexao.con.Close();   
+            }       
         }
 
         private void btnCadastrarTurma_Click(object sender, EventArgs e)
         {
-            string dia = txtDiaSemana.Text;
-            string horaT = mtxtHora.Text;
-            string prof = txtProfessor.Text;
-            string modalidade = txtModalidade.Text;
-            int mod = -1;
-            int qtdeAlunos = int.Parse(txtQtdeAlunos.Text);
+            int mod = 0;
 
             try{
                 Modalidade modal = new Modalidade();
-                MySqlDataReader reader = modal.consultarModalidade(modalidade);
+                MySqlDataReader reader = modal.consultarModalidade(cbbModalidade.Text);
                 while (reader.Read()){
                     mod = int.Parse(reader["idEstudio_Modalidade"].ToString());
                 }
@@ -57,7 +48,7 @@ namespace Estudio
 
                 DAO_Conexao.con.Close();
                 MessageBox.Show(mod.ToString());
-                Turma turma = new Turma(prof, dia, horaT, mod, qtdeAlunos);
+                Turma turma = new Turma(txtProfessor.Text, txtDiaSemana.Text, mtxtHora.Text, cbbModalidade.Text);
 
                 if (turma.cadastrar()){
                     MessageBox.Show("Turma cadastrada com êxito");
@@ -68,8 +59,7 @@ namespace Estudio
                 txtDiaSemana.Text = "";
                 mtxtHora.Text = "";
                 txtProfessor.Text = "";
-                txtModalidade.Text = "";
-                txtQtdeAlunos.Text = "";
+                cbbModalidade.Text = "";
             }
             catch (Exception ex){
                 MessageBox.Show(ex.ToString());
@@ -79,9 +69,5 @@ namespace Estudio
             }
         }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            txtModalidade.Text = dataGridView1.CurrentCell.Value.ToString();
-        }
     }
 }
