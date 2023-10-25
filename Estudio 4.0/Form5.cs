@@ -13,19 +13,65 @@ namespace Estudio
 {
     public partial class Form5 : Form
     {
-        DialogResult resultado = DialogResult.No;
-        public Form5()
+        private bool atualiza;
+        String cpfSelected;
+        public Form5(bool atualiza)
         {
             InitializeComponent();
+
+
+            Aluno aluno1 = new Aluno();
+            MySqlDataReader result = aluno1.consultarAluno2();
+            while (result.Read())
+            {
+                cbbCPF.Items.Add(result["CPFAluno"].ToString());
+            }
+            DAO_Conexao.con.Close();
+            this.atualiza = atualiza;
+
+            if (!atualiza)
+            {
+
+                txtNome.Enabled = false;
+                txtEndereco.Enabled = false;
+                txtNumero.Enabled = false;
+                txtBairro.Enabled = false;
+                txtComplemento.Enabled = false;
+                txtCEP.Enabled = false;
+                txtCidade.Enabled = false;
+                txtEstado.Enabled = false;
+                txtTelefone.Enabled = false;
+                txtEmail.Enabled = false;
+                btnAtualizar.Enabled = false;
+                checkBox1.Enabled = false;
+
+            }
         }
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
-            Aluno aluno = new Aluno(txtCPF.Text, txtNome.Text, txtEndereco.Text, txtNumero.Text, txtBairro.Text, txtComplemento.Text, txtCEP.Text, txtCidade.Text, txtEstado.Text, txtTelefone.Text, txtEmail.Text);
-            if (aluno.consultarAluno())
+            if(atualiza)
             {
+                string nome = txtNome.Text;
+                string rua = txtEndereco.Text;
+                string numero = txtNumero.Text;
+            }
+            int ativo;
+            if (checkBox1.Checked)
+            {
+                ativo = 1;
+            }
+            else
+            {
+                ativo = 0;
+            }
+            Aluno aluno = new Aluno(txtNome.Text, txtEndereco.Text, txtNumero.Text, txtBairro.Text, txtComplemento.Text, txtCEP.Text, txtCidade.Text, txtEstado.Text, txtTelefone.Text, txtEmail.Text, ativo);
+            if (aluno.consultarAluno())
+            {             
+
                 if (aluno.atualizarAluno())
                 {
+                    
                     MessageBox.Show("Aluno atualizado com sucesso");
                 }
                 else
@@ -42,38 +88,46 @@ namespace Estudio
 
         private void txtCPF_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Aluno aluno = new Aluno(txtCPF.Text);
-            if (e.KeyChar == 13)
+            
+        }
+
+        private void cbbCPF_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
             {
-                Console.WriteLine("Entrou");
-                if (aluno.consultarAluno())
+                Aluno aluno2 = new Aluno();
+                cpfSelected = cbbCPF.SelectedItem.ToString();
+                MySqlDataReader reader = aluno2.consultarAluno3(cpfSelected);
+                while (reader.Read())
                 {
-                    DialogResult result = MessageBox.Show("Este aluno já está cadastrado, gostaria de atualizar os dados?", "Aluno já existente",
-                        MessageBoxButtons.YesNo);
-                    if (result == DialogResult.Yes)
+                    cpfSelected = reader["CPFAluno"].ToString();
+                    txtNome.Text = reader["nomeAluno"].ToString();
+                    txtEndereco.Text = reader["ruaAluno"].ToString();
+                    txtNumero.Text = reader["numeroAluno"].ToString();
+                    txtBairro.Text = reader["bairroAluno"].ToString();
+                    txtComplemento.Text = reader["complementoAluno"].ToString();
+                    txtCEP.Text = reader["CEPAluno"].ToString();
+                    txtCidade.Text = reader["cidadeAluno"].ToString();
+                    txtEstado.Text = reader["estadoAluno"].ToString();
+                    txtTelefone.Text = reader["telefoneAluno"].ToString();
+                    txtEmail.Text = reader["emailAluno"].ToString();
+
+                    if (reader["ativo"].ToString().Equals("1"))
                     {
-                        Console.WriteLine("Entrou2");
-                        MySqlDataReader r = aluno.consultarAluno2();
-                        r.Read();
-                        txtNome.Text = r["nomeAluno"].ToString();
-                        txtEndereco.Text = r["ruaAluno"].ToString();
-                        txtNumero.Text = r["numeroAluno"].ToString();
-                        txtBairro.Text = r["bairroAluno"].ToString();
-                        txtComplemento.Text = r["complementoAluno"].ToString();
-                        txtCEP.Text = r["CEPAluno"].ToString();
-                        txtCidade.Text = r["cidadeAluno"].ToString();
-                        txtEstado.Text = r["estadoAluno"].ToString();
-                        txtTelefone.Text = r["telefoneAluno"].ToString();
-                        txtEmail.Text = r["emailAluno"].ToString();
-                        txtCPF.Enabled = false;
-                        resultado = result;
+                        checkBox1.Checked = true;
+                    }
+                    else
+                    {
+                        checkBox1.Checked = false;
                     }
                 }
-                else
-                {
-                    txtNome.Focus();
-                }
+
                 DAO_Conexao.con.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
     }

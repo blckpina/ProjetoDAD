@@ -65,7 +65,11 @@ namespace Estudio
             {
                 groupBox1.Visible = false;
                 menuStrip1.Enabled = true;
-                cadastrarAlunoToolStripMenuItem.Enabled = false;
+                cadastrarModalidadeToolStripMenuItem.Enabled = false;
+                excluirModalidadeToolStripMenuItem.Enabled = false;
+                atualizarModalidadeToolStripMenuItem.Enabled = false;
+                excluirToolStripMenuItem.Enabled = false;
+                cadastrarToolStripMenuItem.Enabled = false;
             }
         }
 
@@ -78,7 +82,8 @@ namespace Estudio
 
         private void atualizarAlunoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form5 atualizar_aluno = new Form5();
+            bool atualiza2 = true;
+            Form5 atualizar_aluno = new Form5(atualiza2);
             atualizar_aluno.MdiParent = this;
             atualizar_aluno.Show();
         }
@@ -125,6 +130,14 @@ namespace Estudio
             Form10 excluir_turma = new Form10();
             excluir_turma.MdiParent = this;
             excluir_turma.Show();
+        }
+
+        private void consultarAlunoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool atualiza2 = false;
+            Form5 atualizar_aluno = new Form5(atualiza2);
+            atualizar_aluno.MdiParent = this;
+            atualizar_aluno.Show();
         }
     }
 }

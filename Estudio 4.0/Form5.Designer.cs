@@ -32,7 +32,6 @@ namespace Estudio
             this.btnAtualizar = new System.Windows.Forms.Button();
             this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
             this.txtCEP = new System.Windows.Forms.MaskedTextBox();
-            this.txtCPF = new System.Windows.Forms.MaskedTextBox();
             this.txtEstado = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -52,11 +51,13 @@ namespace Estudio
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.cbbCPF = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btnAtualizar
             // 
-            this.btnAtualizar.Location = new System.Drawing.Point(39, 273);
+            this.btnAtualizar.Location = new System.Drawing.Point(39, 309);
             this.btnAtualizar.Name = "btnAtualizar";
             this.btnAtualizar.Size = new System.Drawing.Size(608, 23);
             this.btnAtualizar.TabIndex = 48;
@@ -79,16 +80,6 @@ namespace Estudio
             this.txtCEP.Name = "txtCEP";
             this.txtCEP.Size = new System.Drawing.Size(116, 20);
             this.txtCEP.TabIndex = 46;
-            // 
-            // txtCPF
-            // 
-            this.txtCPF.Location = new System.Drawing.Point(99, 42);
-            this.txtCPF.Mask = "000.000.000-00";
-            this.txtCPF.Name = "txtCPF";
-            this.txtCPF.Size = new System.Drawing.Size(100, 20);
-            this.txtCPF.TabIndex = 45;
-            this.txtCPF.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txtCPF_MaskInputRejected);
-            this.txtCPF.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCPF_KeyPress);
             // 
             // txtEstado
             // 
@@ -245,15 +236,35 @@ namespace Estudio
             this.label1.TabIndex = 26;
             this.label1.Text = "CPF:";
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(98, 273);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(68, 17);
+            this.checkBox1.TabIndex = 49;
+            this.checkBox1.Text = "Excluído";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // cbbCPF
+            // 
+            this.cbbCPF.FormattingEnabled = true;
+            this.cbbCPF.Location = new System.Drawing.Point(98, 42);
+            this.cbbCPF.Name = "cbbCPF";
+            this.cbbCPF.Size = new System.Drawing.Size(180, 21);
+            this.cbbCPF.TabIndex = 50;
+            this.cbbCPF.SelectedIndexChanged += new System.EventHandler(this.cbbCPF_SelectedIndexChanged);
+            // 
             // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(703, 338);
+            this.ClientSize = new System.Drawing.Size(703, 354);
+            this.Controls.Add(this.cbbCPF);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.btnAtualizar);
             this.Controls.Add(this.txtTelefone);
             this.Controls.Add(this.txtCEP);
-            this.Controls.Add(this.txtCPF);
             this.Controls.Add(this.txtEstado);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txtEmail);
@@ -285,7 +296,6 @@ namespace Estudio
         private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.MaskedTextBox txtTelefone;
         private System.Windows.Forms.MaskedTextBox txtCEP;
-        private System.Windows.Forms.MaskedTextBox txtCPF;
         private System.Windows.Forms.TextBox txtEstado;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtEmail;
@@ -305,5 +315,7 @@ namespace Estudio
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.ComboBox cbbCPF;
     }
 }

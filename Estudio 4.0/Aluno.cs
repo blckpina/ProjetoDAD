@@ -20,6 +20,7 @@ namespace Estudio
         private string estado;
         private string telefone;
         private string email;
+        private int ativo;
         private byte[] foto;
 
         public Aluno(string cpf, string nome, string rua, string numero, string bairro, string complemento, string cep, string cidade, string estado, string telefone,
@@ -43,7 +44,38 @@ namespace Estudio
             setCPF(cpf);
         }
         
+        public Aluno()
+        {
+        }
 
+        public Aluno(string nome, string rua, string numero, string bairro, string complemento, string cep, string cidade, string estado, string telefone, string email)
+        {
+            setNome(nome);
+            setRua(rua);
+            setNumero(numero);
+            setBairro(bairro);
+            setComplemento(complemento);
+            setCEP(cep);
+            setCidade(cidade);
+            setEstado(estado);
+            setTelefone(telefone);
+            setEmail(email);
+        }
+
+        public Aluno(string nome, string rua, string numero, string bairro, string complemento, string cep, string cidade, string estado, string telefone, string email, int ativo)
+        {
+            setNome(nome);
+            setRua(rua);
+            setNumero(numero);
+            setBairro(bairro);
+            setComplemento(complemento);
+            setCEP(cep);
+            setCidade(cidade);
+            setEstado(estado);
+            setTelefone(telefone);
+            setEmail(email);
+            setAtivo(ativo);
+        }
         public void setCPF(string cpf)
         {
             this.cpf = cpf;
@@ -145,11 +177,21 @@ namespace Estudio
         {
             return this.email;
         }
+        
+
+        public int getAtivo()
+        {
+            return this.ativo;
+        }
+
+        public void setAtivo(int ativo)
+        {
+            this.ativo = ativo;
+        }
         public void setFoto(byte[] foto)
         {
             this.foto = foto;
         }
-
         public byte[] getFoto()
         {
             return this.foto;
@@ -233,7 +275,7 @@ namespace Estudio
             {
                 DAO_Conexao.con.Open();
                 //Console.WriteLine("update Estudio_Aluno set nomeAluno = '" + nome + "', ruaAluno = '" + rua + "', numeroAluno = '" + numero + "', '");
-                MySqlCommand atualiza = new MySqlCommand("update Estudio_Aluno set nomeAluno = '" + nome + "', ruaAluno = '" + rua + "', numeroAluno = '" + numero + "', bairroAluno = '" + bairro + "', complementoAluno = '" + complemento + "', CEPAluno = '" + cep + "', cidadeAluno = '" + cidade + "', estadoAluno = '" + estado + "', telefoneAluno = '" + telefone + "', emailAluno = '" + email + "' where CPFAluno = '" + cpf + "'", DAO_Conexao.con);
+                MySqlCommand atualiza = new MySqlCommand("update Estudio_Aluno set nomeAluno = '" + nome + "', ruaAluno = '" + rua + "', numeroAluno = '" + numero + "', bairroAluno = '" + bairro + "', complementoAluno = '" + complemento + "', CEPAluno = '" + cep + "', cidadeAluno = '" + cidade + "', estadoAluno = '" + estado + "', telefoneAluno = '" + telefone + "', emailAluno = '" + email + "', ativo = '" + ativo + "' where CPFAluno = '" + cpf + "'", DAO_Conexao.con);
                 atualiza.ExecuteNonQuery();
                 exc = true;
             }
@@ -254,12 +296,33 @@ namespace Estudio
             try
             {
                 DAO_Conexao.con.Open();
-                MySqlCommand consulta = new MySqlCommand("SELECT * FROM Estudio_Aluno where CPFAluno = '" + cpf + "'", DAO_Conexao.con);
+                MySqlCommand consulta = new MySqlCommand("SELECT * FROM Estudio_Aluno ", DAO_Conexao.con);
                 resultado = consulta.ExecuteReader();
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
+            }
+            return resultado;
+        }
+
+        public MySqlDataReader consultarAluno3(String cpfSelected)
+        {
+            MySqlDataReader resultado = null;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand consulta = new MySqlCommand("SELECT * FROM Estudio_Aluno " +
+                    "WHERE CPFAluno='" + cpfSelected + "'", DAO_Conexao.con);
+                resultado = consulta.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+
             }
             return resultado;
         }
