@@ -85,6 +85,7 @@ namespace Estudio
             this.btnCadastrarTurma.TabIndex = 8;
             this.btnCadastrarTurma.Text = "Cadastrar";
             this.btnCadastrarTurma.UseVisualStyleBackColor = true;
+            this.btnCadastrarTurma.Click += new System.EventHandler(this.btnCadastrarTurma_Click_1);
             // 
             // txtDiaSemana
             // 

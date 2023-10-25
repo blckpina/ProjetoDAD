@@ -60,14 +60,12 @@ namespace Estudio
             {
                 groupBox1.Visible = false;
                 menuStrip1.Enabled = true;
-                MessageBox.Show("Bem vindo ADM");
             }
             if(tipo == 2)
             {
                 groupBox1.Visible = false;
                 menuStrip1.Enabled = true;
                 cadastrarAlunoToolStripMenuItem.Enabled = false;
-                MessageBox.Show("Bem vindo usuário");
             }
         }
 

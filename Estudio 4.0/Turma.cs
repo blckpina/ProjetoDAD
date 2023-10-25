@@ -40,6 +40,12 @@ namespace Estudio
             this.idModalidade = idModalidade;
             this.qtdeAlunos = qtdeAlunos;
         }
+
+        public Turma(string diaSemana, string horaTurma)
+        {
+            this.diaSemana = diaSemana;
+            this.horaTurma = horaTurma;
+        }
         public Turma()
         {
 
@@ -136,7 +142,7 @@ namespace Estudio
 
             try{
                 DAO_Conexao.con.Open();
-                MySqlCommand exclui = new MySqlCommand("update Estudio_Turma set ativa=1 where idModalidade = '" + idTurma + "'", DAO_Conexao.con);
+                MySqlCommand exclui = new MySqlCommand("update Estudio_Turma set ativa=1 where idModalidade = " + idTurma, DAO_Conexao.con);
                 exclui.ExecuteNonQuery();
                 excluir = true;
             }

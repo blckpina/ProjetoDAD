@@ -13,15 +13,17 @@ namespace Estudio
 {
     public partial class Form9 : Form
     {
+        
         public Form9()
         {
+            InitializeComponent();
             try
             {
                 Modalidade mod1 = new Modalidade();
-                MySqlDataReader result = mod1.consultarTodasModalidades();
+                MySqlDataReader result = mod1.consultarModalidadeAtivo();
                 while (result.Read())
                 {
-                    cbbModalidade.Items.Add(result["idModalidade"].ToString());
+                    cbbModalidade.Items.Add(result["descricaoModalidade"].ToString());
                 }
             }
             catch(Exception ex)
@@ -44,11 +46,10 @@ namespace Estudio
                 while (reader.Read()){
                     mod = int.Parse(reader["idEstudio_Modalidade"].ToString());
                 }
-                MessageBox.Show(mod.ToString());
 
                 DAO_Conexao.con.Close();
                 MessageBox.Show(mod.ToString());
-                Turma turma = new Turma(txtProfessor.Text, txtDiaSemana.Text, mtxtHora.Text, cbbModalidade.Text);
+                Turma turma = new Turma(txtProfessor.Text, txtDiaSemana.Text, mtxtHora.Text, mod);
 
                 if (turma.cadastrar()){
                     MessageBox.Show("Turma cadastrada com êxito");
@@ -65,9 +66,13 @@ namespace Estudio
                 MessageBox.Show(ex.ToString());
             }
             finally{
-                DAO_Conexao.con.Close();
+                
             }
         }
 
+        private void btnCadastrarTurma_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

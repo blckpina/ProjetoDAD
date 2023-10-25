@@ -142,3 +142,4 @@ C:\Users\mupin\OneDrive\Área de Trabalho\ProjetoDAD\Estudio 4.0\obj\Debug\Estud
 C:\Users\mupin\OneDrive\Área de Trabalho\ProjetoDAD\Estudio 4.0\obj\Debug\Estudio.Form9.resources
 C:\Users\aluno\Desktop\ProjetoDAD\Estudio 4.0\obj\Debug\Estudio.Form10.resources
 C:\Users\aluno\Desktop\ProjetoDAD\Estudio 4.0\obj\Debug\Estudio.Form9.resources
+C:\Users\mupin\OneDrive\Área de Trabalho\ProjetoDAD\Estudio 4.0\obj\Debug\Estudio.Form10.resources

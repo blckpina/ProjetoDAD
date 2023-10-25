@@ -30,13 +30,13 @@ namespace Estudio
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cbbModalidade = new System.Windows.Forms.ComboBox();
-            this.cbbDiaSemana = new System.Windows.Forms.ComboBox();
-            this.cbbHora = new System.Windows.Forms.ComboBox();
             this.btnExcluirTurma = new System.Windows.Forms.Button();
+            this.cbbHora = new System.Windows.Forms.ComboBox();
+            this.cbbDiaSemana = new System.Windows.Forms.ComboBox();
+            this.cbbModalidade = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,23 +56,39 @@ namespace Estudio
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Turma";
             // 
-            // label1
+            // btnExcluirTurma
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(34, 40);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Modalidade";
+            this.btnExcluirTurma.Location = new System.Drawing.Point(19, 165);
+            this.btnExcluirTurma.Name = "btnExcluirTurma";
+            this.btnExcluirTurma.Size = new System.Drawing.Size(346, 23);
+            this.btnExcluirTurma.TabIndex = 6;
+            this.btnExcluirTurma.Text = "Excluir";
+            this.btnExcluirTurma.UseVisualStyleBackColor = true;
+            this.btnExcluirTurma.Click += new System.EventHandler(this.btnExcluirTurma_Click);
             // 
-            // label2
+            // cbbHora
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 81);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Dia da Semana";
+            this.cbbHora.FormattingEnabled = true;
+            this.cbbHora.Location = new System.Drawing.Point(102, 119);
+            this.cbbHora.Name = "cbbHora";
+            this.cbbHora.Size = new System.Drawing.Size(263, 21);
+            this.cbbHora.TabIndex = 5;
+            // 
+            // cbbDiaSemana
+            // 
+            this.cbbDiaSemana.FormattingEnabled = true;
+            this.cbbDiaSemana.Location = new System.Drawing.Point(102, 78);
+            this.cbbDiaSemana.Name = "cbbDiaSemana";
+            this.cbbDiaSemana.Size = new System.Drawing.Size(263, 21);
+            this.cbbDiaSemana.TabIndex = 4;
+            // 
+            // cbbModalidade
+            // 
+            this.cbbModalidade.FormattingEnabled = true;
+            this.cbbModalidade.Location = new System.Drawing.Point(102, 37);
+            this.cbbModalidade.Name = "cbbModalidade";
+            this.cbbModalidade.Size = new System.Drawing.Size(263, 21);
+            this.cbbModalidade.TabIndex = 3;
             // 
             // label3
             // 
@@ -83,38 +99,23 @@ namespace Estudio
             this.label3.TabIndex = 2;
             this.label3.Text = "Hora";
             // 
-            // cbbModalidade
+            // label2
             // 
-            this.cbbModalidade.FormattingEnabled = true;
-            this.cbbModalidade.Location = new System.Drawing.Point(102, 37);
-            this.cbbModalidade.Name = "cbbModalidade";
-            this.cbbModalidade.Size = new System.Drawing.Size(263, 21);
-            this.cbbModalidade.TabIndex = 3;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(16, 81);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(80, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Dia da Semana";
             // 
-            // cbbDiaSemana
+            // label1
             // 
-            this.cbbDiaSemana.FormattingEnabled = true;
-            this.cbbDiaSemana.Location = new System.Drawing.Point(102, 78);
-            this.cbbDiaSemana.Name = "cbbDiaSemana";
-            this.cbbDiaSemana.Size = new System.Drawing.Size(263, 21);
-            this.cbbDiaSemana.TabIndex = 4;
-            // 
-            // cbbHora
-            // 
-            this.cbbHora.FormattingEnabled = true;
-            this.cbbHora.Location = new System.Drawing.Point(102, 119);
-            this.cbbHora.Name = "cbbHora";
-            this.cbbHora.Size = new System.Drawing.Size(263, 21);
-            this.cbbHora.TabIndex = 5;
-            // 
-            // btnExcluirTurma
-            // 
-            this.btnExcluirTurma.Location = new System.Drawing.Point(19, 165);
-            this.btnExcluirTurma.Name = "btnExcluirTurma";
-            this.btnExcluirTurma.Size = new System.Drawing.Size(346, 23);
-            this.btnExcluirTurma.TabIndex = 6;
-            this.btnExcluirTurma.Text = "Excluir";
-            this.btnExcluirTurma.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(34, 40);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(62, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Modalidade";
             // 
             // Form10
             // 
