@@ -19,7 +19,6 @@ namespace Estudio
         {
             InitializeComponent();
 
-
             Aluno aluno1 = new Aluno();
             MySqlDataReader result = aluno1.consultarAluno2();
             while (result.Read())
@@ -42,7 +41,7 @@ namespace Estudio
                 txtEstado.Enabled = false;
                 txtTelefone.Enabled = false;
                 txtEmail.Enabled = false;
-                btnAtualizar.Enabled = false;
+                btnAtualizar.Visible = false;
                 checkBox1.Enabled = false;
 
             }
@@ -50,34 +49,78 @@ namespace Estudio
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
-            if(atualiza)
+            try
             {
-                string nome = txtNome.Text;
-                string rua = txtEndereco.Text;
-                string numero = txtNumero.Text;
-            }
-            int ativo;
-            if (checkBox1.Checked)
-            {
-                ativo = 1;
-            }
-            else
-            {
-                ativo = 0;
-            }
-            Aluno aluno = new Aluno(txtNome.Text, txtEndereco.Text, txtNumero.Text, txtBairro.Text, txtComplemento.Text, txtCEP.Text, txtCidade.Text, txtEstado.Text, txtTelefone.Text, txtEmail.Text, ativo);
-            if (aluno.consultarAluno())
-            {             
-
-                if (aluno.atualizarAluno())
+                if (atualiza)
                 {
-                    
-                    MessageBox.Show("Aluno atualizado com sucesso");
+                    string cpf = cbbCPF.Text;
+                    string nome = txtNome.Text;
+                    string rua = txtEndereco.Text;
+                    string numero = txtNumero.Text;
+                    string bairro = txtBairro.Text;
+                    string complemento = txtComplemento.Text;
+                    string cep = txtCEP.Text;
+                    string cidade = txtCidade.Text;
+                    string estado = txtEstado.Text;
+                    string telefone = txtTelefone.Text;
+                    string email = txtEmail.Text;
+                    int ativo;
+
+                    if (checkBox1.Checked)
+                    {
+                        ativo = 1;
+                    }
+                    else
+                    {
+                        ativo = 0;
+                    }
+
+                    Aluno aluno = new Aluno(cpf, nome, rua, numero, bairro, complemento, cep, cidade, estado, telefone, email, ativo);
+
+                    if (aluno.atualizarAluno())
+                    {
+                        MessageBox.Show("Atualização feita com êxito");
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro ao atualizar");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Falha na atualização!");
+                    try
+                    {
+                        Aluno aluno2 = new Aluno();
+                        cpfSelected = cbbCPF.SelectedItem.ToString();
+                        MySqlDataReader reader = aluno2.consultarAluno3(cpfSelected);
+                        {
+                        while (reader.Read())
+                            cpfSelected = reader["CPFAluno"].ToString();
+                            txtNome.Text = reader["nomeAluno"].ToString();
+                            txtEndereco.Text = reader["ruaAluno"].ToString();
+                            txtNumero.Text = reader["numeroAluno"].ToString();
+                            txtBairro.Text = reader["bairroAluno"].ToString();
+                            txtComplemento.Text = reader["complementoAluno"].ToString();
+                            txtCEP.Text = reader["cepAluno"].ToString();
+                            txtCidade.Text = reader["cidadeAluno"].ToString();
+                            txtEstado.Text = reader["estadoAluno"].ToString();
+                            txtTelefone.Text = reader["telefoneAluno"].ToString();
+                            txtEmail.Text = reader["emailAluno"].ToString();
+                        }
+
+                        DAO_Conexao.con.Close();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Não deve ter campos vazios");
             }
         }
 
@@ -120,6 +163,15 @@ namespace Estudio
                     {
                         checkBox1.Checked = false;
                     }
+
+                    if(!atualiza)
+                    {
+                        cbbCPF.Enabled = true;
+                    }
+                    else
+                    {
+                        cbbCPF.Enabled = false;
+                    }
                 }
 
                 DAO_Conexao.con.Close();
@@ -129,6 +181,11 @@ namespace Estudio
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void Form5_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

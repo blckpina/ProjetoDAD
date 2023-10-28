@@ -76,6 +76,23 @@ namespace Estudio
             setEmail(email);
             setAtivo(ativo);
         }
+
+        public Aluno(string cpf, string nome, string rua, string numero, string bairro, string complemento, string cep, string cidade, string estado, string telefone,
+    string email, int ativo)
+        {
+            setCPF(cpf);
+            setNome(nome);
+            setRua(rua);
+            setNumero(numero);
+            setBairro(bairro);
+            setComplemento(complemento);
+            setCEP(cep);
+            setCidade(cidade);
+            setEstado(estado);
+            setTelefone(telefone);
+            setEmail(email);
+            setAtivo(ativo);
+        }
         public void setCPF(string cpf)
         {
             this.cpf = cpf;
@@ -274,8 +291,7 @@ namespace Estudio
             try
             {
                 DAO_Conexao.con.Open();
-                //Console.WriteLine("update Estudio_Aluno set nomeAluno = '" + nome + "', ruaAluno = '" + rua + "', numeroAluno = '" + numero + "', '");
-                MySqlCommand atualiza = new MySqlCommand("update Estudio_Aluno set nomeAluno = '" + nome + "', ruaAluno = '" + rua + "', numeroAluno = '" + numero + "', bairroAluno = '" + bairro + "', complementoAluno = '" + complemento + "', CEPAluno = '" + cep + "', cidadeAluno = '" + cidade + "', estadoAluno = '" + estado + "', telefoneAluno = '" + telefone + "', emailAluno = '" + email + "', ativo = '" + ativo + "' where CPFAluno = '" + cpf + "'", DAO_Conexao.con);
+                MySqlCommand atualiza = new MySqlCommand("update Estudio_Aluno set nomeAluno = '" + nome + "', ruaAluno = '" + rua + "', numeroAluno = '" + numero + "', bairroAluno = '" + bairro + "', complementoAluno = '" + complemento + "', CEPAluno = '" + cep + "', cidadeAluno = '" + cidade + "', estadoAluno = '" + estado + "', telefoneAluno = '" + telefone + "', emailAluno = '" + email + "', ativo = " + ativo + " where CPFAluno = '" + cpf + "'", DAO_Conexao.con);
                 atualiza.ExecuteNonQuery();
                 exc = true;
             }
