@@ -87,7 +87,7 @@ namespace Estudio
             }
             finally
             {
-                
+                DAO_Conexao.con.Close();
             }
             return reader;
         }

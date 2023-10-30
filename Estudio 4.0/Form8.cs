@@ -44,32 +44,38 @@ namespace Estudio
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
             try{
-                if (atualiza){
+                if (atualiza)
+                {
                     float preco = float.Parse(txtPreco.Text);
                     int QtdeAlunos = int.Parse(txtQtdeAlunos.Text);
                     int QtdeAulas = int.Parse(txtQtdeAulas.Text);
                     int a;
 
-                    if (checkBox1.Checked){
+                    if (checkBox1.Checked)
+                    {
                         a = 1;
                     }
-                    else{
+                    else
+                    {
                         a = 0;
                     }
 
                     Modalidade mod2 = new Modalidade(descricaoSelected, preco, QtdeAlunos, QtdeAulas, a);
 
-                    if (mod2.atualizarModalidade()){
+                    if(mod2.atualizarModalidade())
+                    {
                         MessageBox.Show("Atualização feita com êxito");
 
                     }
-                    else{
+                    else
+                    {
                         MessageBox.Show("Erro ao atualizar");
                     }
                 }
                 else
                 {
-                    try{
+                    try
+                    {
                         Modalidade mod3 = new Modalidade();
                         descricaoSelected = cbbDescricao.SelectedItem.ToString();
                         MessageBox.Show(descricaoSelected);
@@ -80,9 +86,7 @@ namespace Estudio
                             txtQtdeAulas.Text = reader["qtdeAulas"].ToString();
                             txtPreco.Text = reader["precoModalidade"].ToString();
                         }
-
                         DAO_Conexao.con.Close();
-
                     }
                     catch (Exception ex){
                         MessageBox.Show(ex.ToString());
