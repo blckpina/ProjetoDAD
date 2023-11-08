@@ -119,9 +119,9 @@ namespace Estudio
         {
             try
             {
-                listBox1.Items.Clear();
+                ltbTurma.Items.Clear();
                 Modalidade m = new Modalidade();
-                MySqlDataReader rIdx = m.consultarModalidade(comboBox1.SelectedItem.ToString());
+                MySqlDataReader rIdx = m.consultarModalidade(cbbMod.SelectedItem.ToString());
                 while (rIdx.Read())
                 {
                     index = int.Parse(rIdx["idEstudio_Modalidade"].ToString());
@@ -134,7 +134,7 @@ namespace Estudio
                 while (rLbx.Read())
                 {
                     nomeTurma = nomeModalidade + "-" + rLbx["diaSemanaTurma"].ToString() + "-" + rLbx["horaTurma"].ToString();
-                    listBox1.Items.Add(nomeTurma);
+                    ltbTurma.Items.Add(nomeTurma);
                 }
                 DAO_Conexao.con.Close();
             }

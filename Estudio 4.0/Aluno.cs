@@ -343,7 +343,7 @@ namespace Estudio
             return resultado;
         }
 
-        public bool verificaCPF() //string CPF - sem parâmetro
+        public bool verificaCPF()
         {
             int soma, resto, cont = 0;
             soma = 0;
