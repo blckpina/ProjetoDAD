@@ -12,6 +12,7 @@ namespace Estudio
     {
         private string professor, diaSemana, horaTurma;
         private int idModalidade, qtdeAlunos, idTurma;
+        private int qtdeMax = 0;
 
         public Turma(int idModalidade)
         {
@@ -57,7 +58,20 @@ namespace Estudio
         public int IdModalidade { get => idModalidade; set => idModalidade = value; }
         public int Qtde_Alunos { get => qtdeAlunos; set => qtdeAlunos = value; }
         public int IdTurma { get => idTurma; set => idTurma = value; }
+        public int QtdeMax { get => qtdeMax; set => qtdeMax = value; }
 
+        public void setQtdeMax(int mde)
+        {
+            try
+            {
+                Modalidade m = new Modalidade();
+                qtdeMax = m.qtdeAlunosViaID(mde);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
         public bool cadastrar()
         {
             bool ins = false;
@@ -171,6 +185,50 @@ namespace Estudio
             finally{
             }
             return result2;
+        }
+
+        public MySqlDataReader consultarTurmaIdDiaHora(int id, string dia, string hora)
+        {
+            MySqlCommand consulta = null;
+            MySqlDataReader resultado = null;
+
+            try
+            {
+                DAO_Conexao.con.Open();
+                consulta = new MySqlCommand("SELECT * FROM Estudio_Turma WHERE idModalidade='" + id + "' AND diaSemanaTurma='" + dia + "' AND horaTurma='" + hora + "'", DAO_Conexao.con);
+                resultado = consulta.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            finally
+            {
+            }
+            return resultado;
+        }
+
+        public MySqlDataReader consultarTurmaId(int id)
+        {
+            MySqlCommand consulta = null;
+            MySqlDataReader resultado = null;
+
+            try
+            {
+                DAO_Conexao.con.Open();
+                consulta = new MySqlCommand("SELECT * FROM Estudio_Turma WHERE idModalidade='" + id + "'", DAO_Conexao.con);
+                resultado = consulta.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            finally
+            {
+            }
+            return resultado;
         }
     }
 }

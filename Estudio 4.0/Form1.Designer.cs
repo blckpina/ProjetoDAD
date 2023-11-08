@@ -34,6 +34,7 @@ namespace Estudio
             this.cadastrarAlunoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrarLoginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.excluirAlunoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarAlunoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.atualizarAlunoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrarModalidadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.excluirModalidadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,7 +52,9 @@ namespace Estudio
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.consultarAlunoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.matriculaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastrarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -60,7 +63,8 @@ namespace Estudio
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.arquivoToolStripMenuItem,
-            this.turmaToolStripMenuItem});
+            this.turmaToolStripMenuItem,
+            this.matriculaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(526, 24);
@@ -105,6 +109,13 @@ namespace Estudio
             this.excluirAlunoToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.excluirAlunoToolStripMenuItem.Text = "Excluir Aluno";
             this.excluirAlunoToolStripMenuItem.Click += new System.EventHandler(this.excluirAlunoToolStripMenuItem_Click);
+            // 
+            // consultarAlunoToolStripMenuItem
+            // 
+            this.consultarAlunoToolStripMenuItem.Name = "consultarAlunoToolStripMenuItem";
+            this.consultarAlunoToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.consultarAlunoToolStripMenuItem.Text = "Consultar Aluno";
+            this.consultarAlunoToolStripMenuItem.Click += new System.EventHandler(this.consultarAlunoToolStripMenuItem_Click);
             // 
             // atualizarAlunoToolStripMenuItem
             // 
@@ -242,12 +253,27 @@ namespace Estudio
             this.label1.TabIndex = 0;
             this.label1.Text = "Login:";
             // 
-            // consultarAlunoToolStripMenuItem
+            // matriculaToolStripMenuItem
             // 
-            this.consultarAlunoToolStripMenuItem.Name = "consultarAlunoToolStripMenuItem";
-            this.consultarAlunoToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.consultarAlunoToolStripMenuItem.Text = "Consultar Aluno";
-            this.consultarAlunoToolStripMenuItem.Click += new System.EventHandler(this.consultarAlunoToolStripMenuItem_Click);
+            this.matriculaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cadastrarToolStripMenuItem1,
+            this.consultarToolStripMenuItem});
+            this.matriculaToolStripMenuItem.Name = "matriculaToolStripMenuItem";
+            this.matriculaToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.matriculaToolStripMenuItem.Text = "Matricula";
+            // 
+            // cadastrarToolStripMenuItem1
+            // 
+            this.cadastrarToolStripMenuItem1.Name = "cadastrarToolStripMenuItem1";
+            this.cadastrarToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.cadastrarToolStripMenuItem1.Text = "Cadastrar";
+            this.cadastrarToolStripMenuItem1.Click += new System.EventHandler(this.cadastrarToolStripMenuItem1_Click);
+            // 
+            // consultarToolStripMenuItem
+            // 
+            this.consultarToolStripMenuItem.Name = "consultarToolStripMenuItem";
+            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.consultarToolStripMenuItem.Text = "Consultar";
             // 
             // Form1
             // 
@@ -294,6 +320,9 @@ namespace Estudio
         private System.Windows.Forms.ToolStripMenuItem excluirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultaAtualizarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarAlunoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem matriculaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadastrarToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem consultarToolStripMenuItem;
     }
 }
 

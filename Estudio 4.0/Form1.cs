@@ -139,5 +139,12 @@ namespace Estudio
             atualizar_aluno.MdiParent = this;
             atualizar_aluno.Show();
         }
+
+        private void cadastrarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Form11 cadastrar_matricula = new Form11();
+            cadastrar_matricula.MdiParent = this;
+            cadastrar_matricula.Show();
+        }
     }
 }

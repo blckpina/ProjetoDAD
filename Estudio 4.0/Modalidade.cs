@@ -14,6 +14,7 @@ namespace Estudio
         private float preco;
         private int qtde_alunos, qtde_aulas;
         private int a;
+        private int codigoID;
 
         public string Descricao1 { get => Descricao; set => Descricao = value; }
         public float Preco { get => preco; set => preco = value; }
@@ -29,6 +30,15 @@ namespace Estudio
             this.qtde_aulas = qtde_aulas;
         }
 
+        public Modalidade(string descricao, float preco, int qtde_alunos, int qtde_aulas, int a, int codigoID)
+        {
+            this.Descricao = descricao;
+            this.preco = preco;
+            this.qtde_alunos = qtde_alunos;
+            this.qtde_aulas = qtde_aulas;
+            this.a = a;
+            this.codigoID = codigoID;
+        }
         public Modalidade(string descricao, float preco, int qtde_alunos, int qtde_aulas, int a)
         {
             this.Descricao = descricao;
@@ -47,7 +57,33 @@ namespace Estudio
         {
         }
 
+        public int qtdeAlunosViaID(int idModalidade)
+        {
+            int quantidade = 0;
+            MySqlCommand consulta = null;
+            MySqlDataReader resultado = null;
 
+            try
+            {
+                DAO_Conexao.con.Open();
+                consulta = new MySqlCommand("SELECT qtdeAlunos FROM Estudio_Modalidade WHERE idEstudio_Modalidade='" + idModalidade + "'", DAO_Conexao.con);
+                resultado = consulta.ExecuteReader();
+                while (resultado.Read())
+                {
+                    quantidade = int.Parse(resultado["qtdeAlunos"].ToString());
+                }
+                DAO_Conexao.con.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            finally
+            {
+            }
+            return quantidade;
+        }
         public bool cadastrarModalidade()
         {
             bool cad2 = false;
