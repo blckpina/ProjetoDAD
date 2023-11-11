@@ -146,5 +146,19 @@ namespace Estudio
             cadastrar_matricula.MdiParent = this;
             cadastrar_matricula.Show();
         }
+
+        private void consultarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form12 consultarexcluir_matricula = new Form12(0);
+            consultarexcluir_matricula.MdiParent = this;
+            consultarexcluir_matricula.Show();
+        }
+
+        private void excluirToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Form12 consultarexcluir_matricula = new Form12(1);
+            consultarexcluir_matricula.MdiParent = this;
+            consultarexcluir_matricula.Show();
+        }
     }
 }

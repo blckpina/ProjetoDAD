@@ -30,14 +30,14 @@ namespace Estudio
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnCadastrar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbbMod = new System.Windows.Forms.ComboBox();
-            this.ltbTurma = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.ltbTurma = new System.Windows.Forms.ListBox();
+            this.cbbMod = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.mtxtCPF = new System.Windows.Forms.MaskedTextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnCadastrar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -55,35 +55,23 @@ namespace Estudio
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Turma";
             // 
-            // groupBox2
+            // label2
             // 
-            this.groupBox2.Controls.Add(this.mtxtCPF);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Location = new System.Drawing.Point(328, 12);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(295, 255);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Aluno";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(26, 91);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(42, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Turmas";
             // 
-            // btnCadastrar
+            // ltbTurma
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(328, 273);
-            this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(295, 23);
-            this.btnCadastrar.TabIndex = 2;
-            this.btnCadastrar.Text = "Cadastrar";
-            this.btnCadastrar.UseVisualStyleBackColor = true;
-            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Modalidades";
+            this.ltbTurma.FormattingEnabled = true;
+            this.ltbTurma.Location = new System.Drawing.Point(26, 110);
+            this.ltbTurma.Name = "ltbTurma";
+            this.ltbTurma.Size = new System.Drawing.Size(248, 160);
+            this.ltbTurma.TabIndex = 2;
+            this.ltbTurma.SelectedIndexChanged += new System.EventHandler(this.ltbTurma_SelectedIndexChanged);
             // 
             // cbbMod
             // 
@@ -94,22 +82,33 @@ namespace Estudio
             this.cbbMod.TabIndex = 1;
             this.cbbMod.SelectedIndexChanged += new System.EventHandler(this.cbbMod_SelectedIndexChanged);
             // 
-            // ltbTurma
+            // label1
             // 
-            this.ltbTurma.FormattingEnabled = true;
-            this.ltbTurma.Location = new System.Drawing.Point(26, 110);
-            this.ltbTurma.Name = "ltbTurma";
-            this.ltbTurma.Size = new System.Drawing.Size(248, 160);
-            this.ltbTurma.TabIndex = 2;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(23, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Modalidades";
             // 
-            // label2
+            // groupBox2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 91);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Turmas";
+            this.groupBox2.Controls.Add(this.mtxtCPF);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Location = new System.Drawing.Point(328, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(174, 104);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Aluno";
+            // 
+            // mtxtCPF
+            // 
+            this.mtxtCPF.Location = new System.Drawing.Point(53, 51);
+            this.mtxtCPF.Mask = "999,999,999-99";
+            this.mtxtCPF.Name = "mtxtCPF";
+            this.mtxtCPF.Size = new System.Drawing.Size(86, 20);
+            this.mtxtCPF.TabIndex = 1;
             // 
             // label3
             // 
@@ -120,19 +119,21 @@ namespace Estudio
             this.label3.TabIndex = 0;
             this.label3.Text = "CPF:";
             // 
-            // mtxtCPF
+            // btnCadastrar
             // 
-            this.mtxtCPF.Location = new System.Drawing.Point(53, 51);
-            this.mtxtCPF.Mask = "999,999,999-99";
-            this.mtxtCPF.Name = "mtxtCPF";
-            this.mtxtCPF.Size = new System.Drawing.Size(86, 20);
-            this.mtxtCPF.TabIndex = 1;
+            this.btnCadastrar.Location = new System.Drawing.Point(328, 132);
+            this.btnCadastrar.Name = "btnCadastrar";
+            this.btnCadastrar.Size = new System.Drawing.Size(174, 33);
+            this.btnCadastrar.TabIndex = 2;
+            this.btnCadastrar.Text = "Cadastrar";
+            this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // Form11
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(659, 316);
+            this.ClientSize = new System.Drawing.Size(524, 316);
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);

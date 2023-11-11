@@ -121,19 +121,18 @@ namespace Estudio
             {
                 ltbTurma.Items.Clear();
                 Modalidade m = new Modalidade();
-                MySqlDataReader rIdx = m.consultarModalidade(cbbMod.SelectedItem.ToString());
-                while (rIdx.Read())
+                MySqlDataReader rI = m.consultarModalidade(cbbMod.SelectedItem.ToString());
+                while (rI.Read())
                 {
-                    index = int.Parse(rIdx["idEstudio_Modalidade"].ToString());
-                    nomeModalidade = (rIdx["descricaoModalidade"].ToString());
+                    index = int.Parse(rI["idEstudio_Modalidade"].ToString());
+                    nomeModalidade = (rI["descricaoModalidade"].ToString());
                 }
-                DAO_Conexao.con.Close();
 
                 Turma t = new Turma();
-                MySqlDataReader rLbx = t.consultarTurmaId(index);
-                while (rLbx.Read())
+                MySqlDataReader rII = t.consultarTurmaId(index);
+                while (rII.Read())
                 {
-                    nomeTurma = nomeModalidade + "-" + rLbx["diaSemanaTurma"].ToString() + "-" + rLbx["horaTurma"].ToString();
+                    nomeTurma = nomeModalidade + "-" + rII["diaSemanaTurma"].ToString() + "-" + rII["horaTurma"].ToString();
                     ltbTurma.Items.Add(nomeTurma);
                 }
                 DAO_Conexao.con.Close();
@@ -142,6 +141,11 @@ namespace Estudio
             {
                 Console.WriteLine(ex.Message);
             }
+        }
+
+        private void ltbTurma_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
